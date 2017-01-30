@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Catalog App</a>
+      </div>
+    </div>
+  <!-- /.container -->
+  </nav>
+  <div class="container">
+    <div class="col-md-12">
+      <p class="lead">Logging out ...</p>
+      <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+      </div>
+      <p class="plain"> You will be redirected to the homepage in 3 seconds.</p>
+      <script>
+            setTimeout(function(){
+                window.location.href="/"; // The URL that will be redirected too.
+            }, 3000); // The bigger the number the longer the delay.
+        </script>
+    </div>
+  </div>
+{% endblock %}

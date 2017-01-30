@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+  {% include "header.html" %}
+  <div class = 'flash'>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+  </div>
+  <div class="container">
+    <div class="col-md-3">
+      <p class="lead">Categories</p>
+
+      <div class="list-group">
+        {%  for category in categories %}
+            <a href="{{ url_for('showCategory', cat_id = category.id) }}" class="list-group-item">{{  category.name }}</a>
+        {% endfor %}
+
+      </div>
+    </div>
+    <div class="col-md-9">
+      {% if user %}
+        <a href="{{ url_for('newItem') }}">Add Item</a>
+      {% endif %}
+      <p class="lead">Latest Items</p>
+      <div class="list-group">
+          {%  for item in latestItems %}
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <a href="{{ url_for('showItem', item_id = item.id) }}">{{ item.name }} ({{ item.category.name }})</a>
+                </div>
+                {% if user and item.user == user %}
+                  <a class="col-md-1" href="{{ url_for('editItem', item_id = item.id) }}" >Edit</a>
+                  <a class="col-md-1" href="{{ url_for('deleteItem', item_id = item.id) }}" >Delete</a>
+                {% endif %}
+              </div>
+            </li>
+          {%  endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Catalog App</a>
+      </div>
+      {% if not user %}
+        <a href="{{ url_for('showLogin', next = request.path) }}" class="btn btn-danger navbar-btn navbar-right">Login</a>
+      {% else %}
+        <div class="navbar-right">
+          <div class="navbar-text"> Welcome: {{ user.name }}</div>
+          <a href="/logout" class="btn btn-danger navbar-btn">Logout</a>
+        </div>
+
+
+      {% endif %}
+    </div>
+  <!-- /.container -->
+  </nav>

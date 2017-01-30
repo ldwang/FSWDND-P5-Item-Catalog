@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  {% include "header.html" %}
+  <div class = 'flash'>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+  </div>
+  <div class="container">
+    <div class="col-md-12 item-bg">
+      <p class="lead">{{ item.name }} (<a href="{{ url_for('showCategory',cat_id=item.cat_id) }}">{{ item.category.name}}</a>)</p>
+      <p class="plain"> {{ item.description }}</p>
+    </div>
+    {% if user and item.user == user %}
+      <div class="col-md-12">
+        <a class="col-md-1" href="{{ url_for('editItem', item_id = item.id) }}" >Edit</a>
+        <a class="col-md-1" href="{{ url_for('deleteItem', item_id = item.id) }}" >Delete</a>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

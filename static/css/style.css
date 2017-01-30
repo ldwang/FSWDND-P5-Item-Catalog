@@ -1,0 +1,56 @@
+body {
+    background-color: #f5f5f5;
+    padding-top: 70px;
+}
+
+#content {
+}
+
+footer {
+    padding-top: 10px;
+    width: 100%;
+    height: 40px;
+}
+
+.item-bg {
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+/*.btn {*/
+	/*padding: 20px;*/
+	/*margin: 0;*/
+	/*border-color: #9FB80A;*/
+	/*border-width: 2px;*/
+	/*color: #9FB80A;;*/
+/*}*/
+.btn:hover {
+	border-color: #9FB80A;
+}
+.btn.delete {
+	border-color: #aaaaaa;
+	color: #aaaaaa;
+}
+.btn.delete:hover {
+	border-color: #aaaaaa;
+	color: red;
+}
+.glyphicon {
+	margin-right: 10px;
+}
+
+.flash {
+	background-color: #f0ad4e;
+	width:100%;
+	text-decoration: none;
+    font-size: large;
+
+}
+
+.flash li {
+	list-style-type: none;
+	text-align: center;
+    font-size: 16px;
+    color: red;
+
+}
