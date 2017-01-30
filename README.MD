@@ -18,10 +18,12 @@ list of items. Clicking each item presents the details of item information.
 
 Users can browse the website anonymously with read-only right. Click the "login" button at the up-right
 corner will redirect to Google+ sign-in page. After allowing the Google+ sign in, user can add items to
-the database, and can also allow to edit or delete items created by the owner.
+the database, and can also allow to edit or delete items created by the owner. User can click "logout"
+button to logout of the website.
 
 Visiting the urls below will get the JSON data:
 * "http://127.0.0.1/catalog.json" will show the output all the categories and items information.
 * "http://127.0.0.1/catalog/JSON" will show the output only the categories list information.
 * "http://127.0.0.1/catalog/cat_id/JSON" will show the output the specific category's items information.
 * "http://127.0.0.1/item/item_id/JSON" will show the output the specific item information.
+
